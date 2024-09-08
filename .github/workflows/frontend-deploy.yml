@@ -1,0 +1,24 @@
+name: Deploy Frontend ITS EXPO
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Deploying to schematics-its.com
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Pull development into production
+        run: |
+          git fetch origin
+          git checkout production
+          git pull origin main
+          git push origin production
