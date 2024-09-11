@@ -137,6 +137,20 @@ body{
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+.container input[type="submit"]{
+  height: 65px;
+  color: #fff;
+  width: calc(100% / 4 - 5px);
+  background: transparent;
+  border-radius: 12px;
+  margin-top: 15px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 .container input[type="button"]:hover{
   background: rgba(255, 255, 255, 0.1);
 }
