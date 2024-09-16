@@ -15,18 +15,18 @@ Route::get('/', function () {
 });
 
 Route::get('/form_get', function () {
-    return view('FormGet');
+    return view('Pertemuan2.rakha.FormGet');
 });
 
 
 Route::get('/calc', function () {
-    return view('SimpleCalc');
+    return view('Pertemuan2.rakha.SimpleCalc');
 });
 
-use Illuminate\Http\Request;
+
 
 Route::get('/bmi', function () {
-    return view('bmiCalc');
+    return view('Pertemuan2.rakha.bmiCalc');
 });
 
 Route::post('/calculate-bmi', function (Request $request) {
@@ -47,7 +47,8 @@ Route::post('/calculate-bmi', function (Request $request) {
         $category = 'Obesity';
     }
 
-    return view('bmiResult', ['bmi' => $bmi, 'category' => $category]);
+    return view('Pertemuan2.rakha.bmiResult', ['bmi' => $bmi, 'category' => $category]);
+});
 
 Route::get('/form_post', function () {
     return view('FormPost');
@@ -74,5 +75,4 @@ Route::post('/kalkulator5', function (Request $request) {
     return view('Pertemuan2.Kalkulator.kalkulator5', [
         'hasil' => $hasil
     ]);
-
 });
