@@ -1,8 +1,7 @@
 # https://github.com/robvanderleek/create-issue-branch#option-2-configure-github-action
 
 # ex: is4-lower_camel_upper
-defaultBranch: 'is71-landing_page'
-branchName: 'is${issue.number}-${issue.title,}'
+branchName: "is${issue.number}-${issue.title,}"
 autoLinkIssue: true
 autoCloseIssue: true
 branches:
