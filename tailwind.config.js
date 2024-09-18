@@ -8,5 +8,13 @@ export default {
   theme: {
     extend: {},
   },
+  fontFamily: {
+    'lemonmilk': ['LemonMilk', 'sans-serif'],
+  },
+  fontWeight: {
+    light: 300,
+    medium: 500,
+    bold: 700,
+  },
   plugins: [],
 }
