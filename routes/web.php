@@ -76,3 +76,7 @@ Route::post('/kalkulator5', function (Request $request) {
         'hasil' => $hasil
     ]);
 });
+
+Route::get('test', function () {
+        return view('test');
+    });

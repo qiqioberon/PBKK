@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Glassmorphism Calculator</title>
-    <link rel="stylesheet" href="{{ asset('css/kalkulator.css') }}">
+    @vite('resources/css/kalkulator.css')
 </head>
 
 <body>
