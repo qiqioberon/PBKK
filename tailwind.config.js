@@ -10,6 +10,7 @@ export default {
   },
   fontFamily: {
     'lemonmilk': ['LemonMilk', 'sans-serif'],
+    'poppins': ['Poppins', 'sans-serif'],
   },
   fontWeight: {
     light: 300,
