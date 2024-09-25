@@ -7,10 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/css/fonts.css')
+
     <title>MEME SHOP</title>
 </head>
 
 <body class="h-full px-24 pt-12 pb-24">
+    <div x-data="{ open: false }" @keydown.window.escape="open = false" x-show="open"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" style="display: none;"
+        @open-modal.window="open = true">
+        <x-modal title="open-modal" content="Ini adalah konten modal." />
+
+    </div>
+
     <nav class="px-24 pt-7 pb-3 w-full flex flex-row justify-between items-center fixed top-0 left-0 right-0 bg-white">
         <h5 class="font-[LemonMilk] font-bold text-3xl text-[#54C4DB]">MEMEMARKET</h5>
         <div class="flex flex-row gap-12 justify-center items-center font-[Poppins]">
@@ -18,7 +26,7 @@
             <p>Shop</p>
             <p>About Us</p>
         </div>
-        <button class="flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]">
+        <button class="flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]" id="modal-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                 <path
                     d="M3 3.5H5L5.4 5.5M7 13.5H17L21 5.5H5.4M7 13.5L5.4 5.5M7 13.5L4.70711 15.7929C4.07714 16.4229 4.52331 17.5 5.41421 17.5H17M17 17.5C15.8954 17.5 15 18.3954 15 19.5C15 20.6046 15.8954 21.5 17 21.5C18.1046 21.5 19 20.6046 19 19.5C19 18.3954 18.1046 17.5 17 17.5ZM9 19.5C9 20.6046 8.10457 21.5 7 21.5C5.89543 21.5 5 20.6046 5 19.5C5 18.3954 5.89543 17.5 7 17.5C8.10457 17.5 9 18.3954 9 19.5Z"
@@ -27,7 +35,7 @@
             <h3 class="font-[LemonMilk] font-bold text-lg ">YOUR CART</h3>
         </button>
     </nav>
-    <main class="w-full flex flex-col justify-center items-center pt-16 gap-9">
+    <main class="w-full flex flex-col justify-center items-center pt-16 gap-9 main-content">
         <img src={{ Vite::asset('resources/images/Onlineshop/Main/hero.png') }} alt="hero" class="w-full" />
         <div class="flex flex-col gap-1 w-full items-start">
             <h1 class="font-[Poppins] font-bold text-4xl">OUR PRODUCT</h1>
@@ -42,7 +50,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -51,10 +59,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -83,7 +91,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -92,10 +100,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -125,7 +133,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -134,10 +142,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -167,7 +175,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -176,10 +184,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -209,7 +217,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -218,10 +226,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -251,7 +259,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -260,10 +268,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -293,7 +301,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -302,10 +310,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -335,7 +343,7 @@
                 <h4 class="font-[Poppins] font-bold text-lg ">kentang gedagedi</h4>
                 <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp 30.000/item</h5>
                 <div class="plusminus flex flex-row justify-center items-start h-9">
-                    <button
+                    <button id="minus"
                         class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
                             fill="none">
@@ -344,10 +352,10 @@
                                 fill="#212122" />
                         </svg>
                     </button>
-                    <button class="px-4 py-1 flex justify-center items-center border h-full">
+                    <div id="amount" class="px-4 py-1 flex justify-center items-center border h-full">
                         <p class="font-[Poppins] font-medium text-xs">1</p>
-                    </button>
-                    <button
+                    </div>
+                    <button id="plus"
                         class="px-4 py-1 flex justify-center items-center border rounded-r-lg h-full hover:bg-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                             fill="none">
@@ -370,7 +378,192 @@
                 </div>
             </div>
         </div>
+        <section>
+            <div class="fixed top-0 z-40 h-screen inset-0 bg-black bg-opacity-50 justify-center pt-20
+                pb-20 overflow-y-auto hidden"
+                id="modal">
+                <div class="w-[60%] h-fit p-16 bg-white justify-start items-start rounded-2xl flex flex-col gap-8 ">
+                    <div class="flex flex-row justify-between w-full">
+                        <h1 class="font-[Poppins] font-bold text-5xl">Checkouts</h1>
+                        <button class="hover:bg-black/20 rounded-lg close">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48" fill="none">
+                                <path d="M36 12L12 36M12 12L36 36" stroke="#1E1E1E" stroke-width="4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex w-full flex-row gap-0">
+                        <div class="w-[50%] justify-start flex">
+                            <h3 class="font-[Poppins] text-2xl font-semibold">Memes</h3>
+                        </div>
+                        <div class="w-[50%] flex flex-row justify-between font-semibold">
+                            <h3 class="font-[Poppins] text-2xl">Price</h3>
+                            <h3 class="font-[Poppins] text-2xl">Quantity</h3>
+                            <h3 class="font-[Poppins] text-2xl">Subtotal</h3>
+                        </div>
+                    </div>
+                    <div class="flex w-full flex-col gap-3">
+                        <div
+                            class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                            <div class="w-[50%] flex flex-row gap-3 items-center">
+                                <div class="image w-[15%]">
+                                    <img src={{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}
+                                        alt="product" class="w-full h-full" />
+                                </div>
+                                <p class="font-[Poppins] font-normals text-2xl ">Kentang Gedagedi</p>
+                            </div>
+                            <div class="w-[50%] flex flex-row justify-between items-center">
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 34.000</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">3</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 102.000</p>
+                            </div>
+                        </div>
+                        <div
+                            class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                            <div class="w-[50%] flex flex-row gap-3 items-center">
+                                <div class="image w-[15%]">
+                                    <img src={{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}
+                                        alt="product" class="w-full h-full" />
+                                </div>
+                                <p class="font-[Poppins] font-normals text-2xl ">Kentang Gedagedi</p>
+                            </div>
+                            <div class="w-[50%] flex flex-row justify-between items-center">
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 34.000</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">3</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 102.000</p>
+                            </div>
+                        </div>
+                        <div
+                            class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                            <div class="w-[50%] flex flex-row gap-3 items-center">
+                                <div class="image w-[15%]">
+                                    <img src={{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}
+                                        alt="product" class="w-full h-full" />
+                                </div>
+                                <p class="font-[Poppins] font-normals text-2xl ">Kentang Gedagedi</p>
+                            </div>
+                            <div class="w-[50%] flex flex-row justify-between items-center">
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 34.000</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">3</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 102.000</p>
+                            </div>
+                        </div>
+                        <div
+                            class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                            <div class="w-[50%] flex flex-row gap-3 items-center">
+                                <div class="image w-[15%]">
+                                    <img src={{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}
+                                        alt="product" class="w-full h-full" />
+                                </div>
+                                <p class="font-[Poppins] font-normals text-2xl ">Kentang Gedagedi</p>
+                            </div>
+                            <div class="w-[50%] flex flex-row justify-between items-center">
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 34.000</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">3</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 102.000</p>
+                            </div>
+                        </div>
+                        <div
+                            class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                            <div class="w-[50%] flex flex-row gap-3 items-center">
+                                <div class="image w-[15%]">
+                                    <img src={{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}
+                                        alt="product" class="w-full h-full" />
+                                </div>
+                                <p class="font-[Poppins] font-normals text-2xl ">Kentang Gedagedi</p>
+                            </div>
+                            <div class="w-[50%] flex flex-row justify-between items-center">
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 34.000</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">3</p>
+                                <p class="font-[Poppins] font-normals text-2xl ">Rp 102.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grandtotal flex flex-col gap-8 py-10 bg-[#EAEAEA] w-full rounded-2xl justify-center">
+                        <div class="flex flex-row justify-between items-center px-10">
+                            <h3 class="font-[Poppins] text-2xl font-medium">Total</h3>
+                            <h3 class="font-[Poppins] text-2xl font-medium">Rp 510.000</h3>
+                        </div>
+                        <div class="flex flex-row justify-between items-center px-10">
+                            <h3 class="font-[Poppins] text-2xl font-medium">Tax</h3>
+                            <h3 class="font-[Poppins] text-2xl font-medium">Rp 51.000</h3>
+                        </div>
+                        <div class="flex flex-row justify-between items-center px-10">
+                            <h3 class="font-[Poppins] text-3xl font-bold">Grand Total</h3>
+                            <h3 class="font-[Poppins] text-3xl font-bold">Rp 561.000</h3>
+                        </div>
+                        <div class="w-full flex justify-center items-center">
+                            <button
+                                class="w-fit flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25"
+                                    viewBox="0 0 24 25" fill="none">
+                                    <path
+                                        d="M3 3.5H5L5.4 5.5M7 13.5H17L21 5.5H5.4M7 13.5L5.4 5.5M7 13.5L4.70711 15.7929C4.07714 16.4229 4.52331 17.5 5.41421 17.5H17M17 17.5C15.8954 17.5 15 18.3954 15 19.5C15 20.6046 15.8954 21.5 17 21.5C18.1046 21.5 19 20.6046 19 19.5C19 18.3954 18.1046 17.5 17 17.5ZM9 19.5C9 20.6046 8.10457 21.5 7 21.5C5.89543 21.5 5 20.6046 5 19.5C5 18.3954 5.89543 17.5 7 17.5C8.10457 17.5 9 18.3954 9 19.5Z"
+                                        stroke="#212122" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <h3 class="font-[LemonMilk] font-bold text-lg ">PROCEED TO CHECKOUT</h3>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </section>
     </main>
 </body>
+
+<script>
+    const modal = document.getElementById('modal');
+    const modalbutton = document.getElementById('modal-button');
+    const closemodal = document.querySelector('.close');
+
+    modalbutton.addEventListener('click', () => {
+        modal.classList.toggle('hidden');
+        modal.classList.toggle('flex');
+        document.querySelector('.main-content').classList.toggle('overflow-y-hidden');
+    });
+
+    closemodal.addEventListener('click', () => {
+        modal.classList.toggle('flex');
+        modal.classList.toggle('hidden');
+        document.querySelector('.main-content').classList.toggle('overflow-y-hidden');
+    });
+
+
+    const cart = document.querySelectorAll('.addcart');
+    const cartbutton = document.querySelector('.cart-button');
+    const minus = document.querySelectorAll('#minus');
+    const plus = document.querySelectorAll('#plus');
+    const amount = document.querySelectorAll('#amount');
+
+    // fungsikan plus dan minus untuk mengedit isi dari amount
+    minus.forEach((button) => {
+        button.addEventListener('click', () => {
+            let value = parseInt(button.nextElementSibling.innerText);
+            if (value > 1) {
+                value -= 1;
+                button.nextElementSibling.innerText = value;
+            }
+        });
+    });
+
+    plus.forEach((button) => {
+        button.addEventListener('click', () => {
+            let value = parseInt(button.previousElementSibling.innerText);
+            value += 1;
+            button.previousElementSibling.innerText = value;
+        });
+    });
+
+    // fungsikan addcart untuk reset amount
+    cart.forEach((button) => {
+        button.addEventListener('click', () => {
+            let value = parseInt(button.previousElementSibling.children[1].innerText);
+            value = 1;
+            button.previousElementSibling.children[1].innerText = value;
+        });
+
+    });
+</script>
 
 </html>
