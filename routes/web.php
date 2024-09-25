@@ -1,19 +1,12 @@
 <?php
 
-require __DIR__ . '/pertemuan1.php';
-require __DIR__ . '/pertemuan2.php';
-require __DIR__ . '/pertemuan3.php';
-require __DIR__ . '/pertemuan4.php';
-
 use Illuminate\Support\Facades\Route;
-
-
+use App\Http\Controllers\MhsController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('mhs', MhsController::class);
 
-Route::get('test', function () {
-    return view('test');
-});
+Route::get('/mhs', [MhsController::class, 'index'])->name('mhs.index');
