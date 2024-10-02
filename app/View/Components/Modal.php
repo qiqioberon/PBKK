@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Modal extends Component
+class CheckoutModal extends Component
 {
     /**
      * Create a new component instance.
@@ -27,15 +27,20 @@ class Modal extends Component
 
     public $title;
     public $content;
-
-    public function __construct($title, $content)
+    public $cart;
+    public function __construct($title, $content, $cart)
     {
         $this->title = $title;
         $this->content = $content;
+        $this->cart = $cart;
+
+        if (session()->has('cart')) {
+            $this->cart = session()->get('cart');
+        }
     }
 
     public function render()
     {
-        return view('components.modal');
+        return view('components.checkoutmodal');
     }
 }
