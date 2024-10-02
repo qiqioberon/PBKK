@@ -35,7 +35,7 @@
     </nav>
     <main class="w-full flex flex-col justify-center items-center pt-16 gap-9 main-content">
 
-        <img src={{ Vite::asset('resources/images/Onlineshop/Main/hero.png') }} alt="hero" class="w-full" />
+        {{-- <img src={{ Vite::asset('resources/images/Onlineshop/Main/hero.png') }} alt="hero" class="w-full" /> --}}
         <div class="flex flex-col gap-1 w-full items-start">
             <h1 class="font-[Poppins] font-bold text-4xl">OUR PRODUCT</h1>
             <p class="font-[Poppins] font-medium text-xl ">Check our best memes on this world</p>
