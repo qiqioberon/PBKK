@@ -49,8 +49,8 @@ pb-20 overflow-y-auto  {{ $show ? 'flex' : 'hidden' }}"
                             class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
                             <div class="w-[50%] flex flex-row gap-3 items-center">
                                 <div class="image w-[15%]">
-                                    <img src="{{ Vite::asset('resources/images/Onlineshop/Main/kentang.png') }}"
-                                        alt="product" class="w-full h-full" />
+                                    <img src="{{ Vite::asset($cartitem['image']) }}" alt="product"
+                                        class="w-full h-full" />
                                 </div>
                                 <p class="font-[Poppins] font-normals text-2xl ">{{ $cartitem['name'] }}</p>
                             </div>
