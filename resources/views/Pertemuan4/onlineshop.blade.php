@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <script src="https://cdn.jsdelivr.net/npm/inferencejs"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/inferencejs"></script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/css/fonts.css')
@@ -16,7 +16,6 @@
 </head>
 
 <body class="h-full px-24 pt-12 pb-24">
-
 
     <nav class="px-24 pt-7 pb-3 w-full flex flex-row justify-between items-center fixed top-0 left-0 right-0 bg-white">
         <h5 class="font-[LemonMilk] font-bold text-3xl text-[#54C4DB]">MARKET APALAHHH</h5>
@@ -148,6 +147,7 @@
     const minus = document.querySelectorAll('#minus');
     const plus = document.querySelectorAll('#plus');
     const amount = document.querySelectorAll('#amount');
+
 
     // const inferEngine = new InferenceEngine();
     uploadImage.addEventListener('click', () => {
