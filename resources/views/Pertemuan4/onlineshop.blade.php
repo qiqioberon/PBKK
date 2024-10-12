@@ -122,17 +122,6 @@
 
 
         </div>
-        <button
-            class="addcart flex flex-row gap-4 px-20 py-6 justify-center items-center bg-[#168F64] hover:bg-[#7cc4ab] rounded-lg w-fit"
-            id="send-cart">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 13 13"
-                fill="none">
-                <path
-                    d="M2.2417 2.26514H3.20771L3.40092 3.23115M4.17373 7.09521H9.00379L10.9358 3.23115H3.40092M4.17373 7.09521L3.40092 3.23115M4.17373 7.09521L3.06624 8.20269C2.76197 8.50697 2.97747 9.02723 3.40778 9.02723H9.00379M9.00379 9.02723C8.47028 9.02723 8.03778 9.45973 8.03778 9.99325C8.03778 10.5268 8.47028 10.9593 9.00379 10.9593C9.53731 10.9593 9.96981 10.5268 9.96981 9.99325C9.96981 9.45973 9.53731 9.02723 9.00379 9.02723ZM5.13974 9.99325C5.13974 10.5268 4.70724 10.9593 4.17373 10.9593C3.64021 10.9593 3.20771 10.5268 3.20771 9.99325C3.20771 9.45973 3.64021 9.02723 4.17373 9.02723C4.70724 9.02723 5.13974 9.45973 5.13974 9.99325Z"
-                    stroke="#F9F9FA" stroke-width="0.966014" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <h3 class="font-[LemonMilk] font-bold text-lg text-white">SERIUS ? yakin dek?</h3>
-        </button>
         <section>
             <x-checkoutmodal @keydown.window.escape="open = false" x-show="open" @open-modal.window="open = true"
                 :show="false" :cart=$cart />
