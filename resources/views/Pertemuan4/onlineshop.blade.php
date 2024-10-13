@@ -287,12 +287,15 @@
             }
         });
 
+        productContainer.innerHTML = '';
+        if (productResult.length === 0) {
+            productContainer.innerHTML = '<h1 class="font-[Poppins] font-bold text-4xl">No Product Found</h1>';
+        }
         //console.log("ini adalah result", productResult());
 
         //menampilkan produk yang terkandung di dalam imagePredictions
 
 
-        productContainer.innerHTML = '';
         productResult.forEach((product) => {
             const productImagePath = `{{ Vite::asset('${product.image}') }}`;
 
@@ -381,10 +384,14 @@
         const searchValue = searchInput.value.toLowerCase();
         const filteredProducts = productarray.filter((product) => product.name.toLowerCase().includes(
             searchValue));
+
+        productContainer.innerHTML = '';
+        if (filteredProducts.length === 0) {
+            productContainer.innerHTML = '<h1 class="font-[Poppins] font-bold text-4xl">No Product Found</h1>';
+        }
         const productImage = productarray.find((product) => product.name.toLowerCase().includes(
             searchValue)).image;
 
-        productContainer.innerHTML = '';
         filteredProducts.forEach((product) => {
             const productImagePath = `{{ Vite::asset('${product.image}') }}`;
 
