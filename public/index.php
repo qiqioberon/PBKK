@@ -2,11 +2,6 @@
 
 use Illuminate\Http\Request;
 
-// Check if APP_KEY is missing and generate it if necessary
-if (empty(getenv('APP_KEY')) || getenv('APP_KEY') === '') {
-    echo shell_exec('php artisan key:generate --ansi');
-}
-
 
 define('LARAVEL_START', microtime(true));
 
