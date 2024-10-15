@@ -592,20 +592,22 @@
         }
     });
 
+    var cart_items_names = [];
+
     async function updateCartUI() {
-    try {
-        const response = await fetch('get-cart'); // Mengambil data cart dari server
-        const cart_items = await response.json(); // Mengubah response menjadi JSON
-        const cart_items_names = cart_items.product;
-        console.log(cart_items.product[2].image);
+        try {
+            const response = await fetch('get-cart'); // Mengambil data cart dari server
+            const cart_items = await response.json(); // Mengubah response menjadi JSON
+            cart_items_names = cart_items.product;
+            console.log(cart_items.product[2].image);
 
-        const cartContainer = document.getElementById('cart-container-items'); // Element container di dalam modal
-        cartContainer.innerHTML = ''; // Bersihkan container sebelum memasukkan item baru
+            const cartContainer = document.getElementById('cart-container-items'); // Element container di dalam modal
+            cartContainer.innerHTML = ''; // Bersihkan container sebelum memasukkan item baru
 
-        if (cart_items_names.length > 0) {
-            cart_items_names.forEach(item => {
-                // Membuat elemen HTML untuk setiap item di cart
-                const cartItem = `
+            if (cart_items_names.length > 0) {
+                cart_items_names.forEach((item,index) => {
+                    // Membuat elemen HTML untuk setiap item di cart
+                    const cartItem = `
                     <div class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
                         <div class="w-[50%] flex flex-row gap-3 items-center">
                             <div class="image w-[15%]">
@@ -615,21 +617,69 @@
                         </div>
                         <div class="w-[50%] flex flex-row justify-between items-center">
                             <p class="font-[Poppins] font-normals text-2xl ">${item.price}</p>
-                            <p class="font-[Poppins] font-normals text-2xl ">${item.quantity}</p>
-                            <p class="font-[Poppins] font-normals text-2xl ">Rp ${(item.price * item.quantity).toLocaleString()}</p>
+                            <div class="quantity-control flex items-center gap-2">
+                                <button class="decrease-quantity" onclick="updateQuantity(${index}, 'decrease')">−</button>
+                                <p class="font-[Poppins] font-normals text-2xl" id="quantity-${index}">${item.quantity}</p>
+                                <button class="increase-quantity" onclick="updateQuantity(${index}, 'increase')">+</button>
+                            </div>
+                            <p class="font-[Poppins] font-normals text-2xl" id="subtotal-${index}">Rp ${(item.price * item.quantity).toLocaleString()}</p>
                         </div>
                     </div>
                 `;
-                cartContainer.innerHTML += cartItem; // Masukkan item ke dalam container
-            });
-        } else {
-            cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                    cartContainer.innerHTML += cartItem; // Masukkan item ke dalam container
+                });
+            } else {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+            }
+            
+        } catch (error) {
+            console.error('Error fetching cart data:', error);
         }
-        
-    } catch (error) {
-        console.error('Error fetching cart data:', error);
     }
-}
+
+    function updateQuantity(index, action) {
+        const quantityElement = document.getElementById(`quantity-${index}`);
+        let quantity = parseInt(quantityElement.innerText);
+
+        if (action === 'increase') {
+            quantity += 1;
+        } else if (action === 'decrease' && quantity > 0) {
+            quantity -= 1;
+        }
+
+        quantityElement.innerText = quantity;
+
+        // Update subtotal
+        const price = cart_items_names[index].price;
+        const subtotalElement = document.getElementById(`subtotal-${index}`);
+        subtotalElement.innerText = `Rp ${(price * quantity).toLocaleString()}`;
+
+        // Update the cart_items_names with new quantity
+        cart_items_names[index].quantity = quantity;
+    }
+
+    // Function to update the cart (send updated quantities to the server)
+    async function updateCart() {
+        try{
+            console.log(cart_items_names);
+            const response = await fetch('/update-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify(cart_items_names)
+            });
+            if (response.status === 200) {
+                const data = await response.json();
+                console.log(data); //  Akan mencetak response sebagai teks
+                updateCartUI();
+            }
+
+        } catch (error) {
+            console.error('Error updating cart:', error);
+        }
+    }
 
 
 

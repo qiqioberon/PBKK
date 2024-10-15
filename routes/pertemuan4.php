@@ -10,3 +10,4 @@ Route::post('/online-shop', [OnlineShop::class, 'handleShowCart'])->middleware('
 Route::get('/add-products', [OnlineShop::class, 'addProductsToDatabase']);
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->middleware('auth');
 Route::get('/get-cart', [CartController::class, 'getCart'])->middleware('auth');
+Route::post('/update-cart', [CartController::class, 'updateCart'])->middleware('auth');

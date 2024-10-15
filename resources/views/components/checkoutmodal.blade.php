@@ -28,6 +28,13 @@
             <!-- Items akan di-update di sini -->
         </div>
 
+        <!-- Update Cart Button -->
+        <div class="w-full flex justify-center items-center mt-5">
+            <button id="update-cart-button" class="w-fit flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]" onclick="updateCart()">
+                <h3 class="font-[LemonMilk] font-bold text-lg">UPDATE CART</h3>
+            </button>
+        </div>
+
         <div class="grandtotal flex flex-col gap-8 py-10 bg-[#EAEAEA] w-full rounded-2xl justify-center">
             <div class="w-full flex justify-center items-center">
                 <button class="w-fit flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]">
@@ -43,3 +50,4 @@
         </div>
     </div>
 </div>
+

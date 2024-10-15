@@ -98,6 +98,7 @@ class CartController extends Controller
             $item = Item::find($cartItem->Item_item_id);
             $variant = Variant::where('Item_item_id', $item->item_id)->get();
             $product[] = [
+                'cart_id' => $cart->cart_id,    
                 'item_id' => $item->item_id,
                 'name' => $item->name,
                 'price' => $item->price,
@@ -113,5 +114,50 @@ class CartController extends Controller
 
 
         return response()->json($cart);
+    }
+
+    public function updateCart(Request $request)
+    {
+        $userId = Auth::id();
+
+        $array = $request->all();
+        // request is an array of objects of cart items
+        // okay so it appears that request is an array of objects of cart items
+        // so we need to loop through each object and update the quantity of each cart item
+        
+        // find cart for user
+        $cart = Cart::where('User_user_id', $userId)->first();
+        if (!$cart) {
+            return response()->json([
+                'message' => 'Cart not found'
+            ], 404);
+        }
+        
+        foreach ($array as $cartItem) {
+            // find cart item
+            $item = CartItem::where('Cart_cart_id', $cart->cart_id)
+            ->where('Item_item_id', $cartItem['item_id'])
+            ->first();
+            if (!$item) {
+                return response()->json([
+                    'message' => 'Cart item not found'
+                ], 404);
+            }
+
+            // update quantity
+            $item->quantity = $cartItem['quantity'];
+            if ($item->quantity == 0) {
+                $item->delete();
+            } else {
+                $item->save();
+            }
+        }
+
+        return response()->json([
+            'message' => 'Cart updated'
+        ]);        
+
+        // return $request;
+        
     }
 }
