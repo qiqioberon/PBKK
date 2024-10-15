@@ -87,7 +87,30 @@ class CartController extends Controller
                 'message' => 'Cart not found'
             ], 404);
         }
+
+        // find cart items
+        $cartItems = CartItem::where('Cart_cart_id', $cart->cart_id)->get();
+
+
+        // find product that is in cart items
+        $product = [];
+        foreach ($cartItems as $cartItem) {
+            $item = Item::find($cartItem->Item_item_id);
+            $variant = Variant::where('Item_item_id', $item->item_id)->get();
+            $product[] = [
+                'item_id' => $item->item_id,
+                'name' => $item->name,
+                'price' => $item->price,
+                'image' => $item->image,
+                'stock' => $item->stock,
+                'quantity' => $cartItem->quantity,
+                'variant' => $variant
+            ];
+        }
+
+        $cart->product = $product;
         
+
 
         return response()->json($cart);
     }

@@ -163,28 +163,14 @@
         </div>
 
         <section>
-            <x-checkoutmodal @keydown.window.escape="open = false" 
-                            x-show="open" 
-                            @open-modal.window="open = true; updateCartUI(); console.log('open modal')" 
-                            :show="false" 
-                            :cart="$cart">
-                <div id="cart-container">
-                    <!-- Items will be dynamically added here by updateCartUI -->
-                </div>
-            </x-checkoutmodal>
+            <x-checkoutmodal @keydown.window.escape="open = false" x-show="open" @open-modal.window="open = true"
+                :show="false" :cart=$cart id="cart-container"/>
         </section>
-
-
         
     </main>
 </body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log("Page loaded");
-        window.dispatchEvent(new CustomEvent('open-modal'));
-    });
-
 
     console.log("aaa");
 
@@ -607,46 +593,44 @@
     });
 
     async function updateCartUI() {
-        try {
-            const response = await fetch('get-cart'); // Mengambil data cart dari server
-            const cart = await response.json(); // Mengubah response menjadi JSON
+    try {
+        const response = await fetch('get-cart'); // Mengambil data cart dari server
+        const cart_items = await response.json(); // Mengubah response menjadi JSON
+        const cart_items_names = cart_items.product;
+        console.log(cart_items.product[2].image);
 
-            console.log(cart); // Mencetak objek cart untuk debug
+        const cartContainer = document.getElementById('cart-container-items'); // Element container di dalam modal
+        cartContainer.innerHTML = ''; // Bersihkan container sebelum memasukkan item baru
 
-            // Cek apakah ada elemen modal cart
-            const cartContainer = document.getElementById('cart-container');
-            if (!cartContainer) {
-                console.error("Cart container not found.");
-                return;
-            }
-
-            // Kosongkan cartContainer sebelum menambahkan item baru
-            cartContainer.innerHTML = '';
-
-            // Jika tidak ada item di cart, tampilkan pesan kosong
-            if (cart.cart_items.length === 0) {
-                cartContainer.innerHTML = '<p>Your cart is empty</p>';
-            } else {
-                // Iterasi melalui item-item di dalam cart dan tambahkan ke modal
-                cart.cart_items.forEach(item => {
-                    cartContainer.innerHTML += `
-                        <div class="cart-item">
-                            <img src="${item.item.image}" alt="${item.item.name}" class="cart-item-image">
-                            <p>${item.item.name}</p>
-                            <p>Qty: ${item.quantity}</p>
-                            <p>Price: Rp ${item.item.price_per_item}</p>
+        if (cart_items_names.length > 0) {
+            cart_items_names.forEach(item => {
+                // Membuat elemen HTML untuk setiap item di cart
+                const cartItem = `
+                    <div class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                        <div class="w-[50%] flex flex-row gap-3 items-center">
+                            <div class="image w-[15%]">
+                                <img src="{{ Vite::asset('${item.image}') }}" alt="{{ $product->name }}" class="w-full h-full" />
+                            </div>
+                            <p class="font-[Poppins] font-normals text-2xl ">${item.name}</p>
                         </div>
-                    `;
-                });
-            }
-
-            // Jika cart di-update, buka modal
-            window.dispatchEvent(new CustomEvent('open-modal', { detail: { open: true } }));
-
-        } catch (error) {
-            console.error('Error fetching cart data:', error);
+                        <div class="w-[50%] flex flex-row justify-between items-center">
+                            <p class="font-[Poppins] font-normals text-2xl ">${item.price}</p>
+                            <p class="font-[Poppins] font-normals text-2xl ">${item.quantity}</p>
+                            <p class="font-[Poppins] font-normals text-2xl ">Rp ${(item.price * item.quantity).toLocaleString()}</p>
+                        </div>
+                    </div>
+                `;
+                cartContainer.innerHTML += cartItem; // Masukkan item ke dalam container
+            });
+        } else {
+            cartContainer.innerHTML = '<p>Your cart is empty.</p>';
         }
+        
+    } catch (error) {
+        console.error('Error fetching cart data:', error);
     }
+}
+
 
 
 </script>
