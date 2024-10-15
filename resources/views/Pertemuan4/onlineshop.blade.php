@@ -303,9 +303,48 @@
         //mengecek dan mengumpulkan semua produk berdasarkan kategori atau variant yang terkandug di dalam imagePredictions
         imagePredictions.forEach((prediction) => {
             const targetPrefix = prediction.class;
-            const matchedVariantName = Object.keys(variantsProduct).find(key =>
-                variantsProduct[key].some(variant => variant.includes(targetPrefix))
-            );
+            console.log(targetPrefix);
+            
+            // how to access variantsProduct['balaji_aloo_sev'][0].image_back
+            /*
+            variantProduct = {
+                balaji_aloo_sev: [
+                    {
+                        image_back: 'balaji_aloo_sev_back.jpg',
+                        image_front: 'balaji_aloo_sev_front.jpg',
+                        name: 'balaji_aloo_sev',
+                        price: 10000
+                    },
+                    length: 1
+                ]
+            }
+            */
+
+            var matchedVariantName;
+
+            Object.keys(variantsProduct).forEach(productKey => {
+                console.log(`Checking product: ${productKey}`);
+                
+                // Iterate over each variant in the product
+                variantsProduct[productKey].forEach(variant => {
+                    console.log(variant.image_front);
+                    // Compare the target string with image_back, image_front, and image_side if it exists
+                    if (variant.image_back && variant.image_back === targetPrefix) {
+                        console.log(`Match found for image_back in product: ${productKey}`);
+                        matchedVariantName = productKey;
+                    }
+                    if (variant.image_front && variant.image_front === targetPrefix) {
+                        console.log(`Match found for image_front in product: ${productKey}`);
+                        matchedVariantName = productKey;
+
+                    }
+                    if (variant.image_side && variant.image_side === targetPrefix) {
+                        console.log(`Match found for image_side in product: ${productKey}`);
+                        matchedVariantName = productKey;
+
+                    }
+                });
+            });
 
             if (matchedVariantName) {
                 const productToAdd = productarray.find((product) =>
