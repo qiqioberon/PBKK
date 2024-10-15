@@ -9,6 +9,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    protected $primaryKey = 'user_id';
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'User_user_id');
+    }
+
     use HasFactory, Notifiable;
 
     /**

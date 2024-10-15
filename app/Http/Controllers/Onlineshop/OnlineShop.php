@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Onlineshop;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Item;
+use App\Models\Variant;
 
 class OnlineShop extends Controller
 {
@@ -467,4 +469,61 @@ class OnlineShop extends Controller
             'variants' => $this->productVariantImage,
         ]);
     }
+
+    public function addProductsToDatabase()
+{
+    foreach ($this->allProduct as $product) {
+        // Add the product to the database
+        $item = Item::create([
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'image' => $product['image']
+        ]);
+
+        // Add variants if they exist
+        $productSlug = strtolower(str_replace(' ', '_', $product['name']));
+
+        if (array_key_exists($productSlug, $this->productVariantImage)) {
+            $variants = $this->productVariantImage[$productSlug];
+
+            $imageFront = null;
+            $imageBack = null;
+            $imageSide = null;
+
+            // If there are multiple variants, add them
+            foreach ($variants as $variant) {
+                $variantParts = explode('_', $variant);        
+
+                // Check if variant is for front, back, or side
+                $lastElement = $variantParts[count($variantParts) - 1];
+                if ($lastElement === 'front') {
+                    $imageFront = $variant;
+                } else if ($lastElement === 'back') {
+                    $imageBack = $variant;
+                } else if ($lastElement === 'side') {
+                    $imageSide = $variant;
+                }
+
+                if ($imageFront === null) {
+                    continue;
+                }
+
+                
+            }
+
+            // Add the variants to the database
+            // Insert the variant into the database
+            Variant::create([
+                'Item_item_id' => $item->item_id, // This is the foreign key
+                'variant_name' => $product['name'] . ' ' . $variantParts[1],
+                'image_back' => $imageBack,
+                'image_front' => $imageFront, // Ensure this is always filled
+                'image_side' => $imageSide,
+            ]);
+        }
+    }
+
+    return "Products and Variants added to the database successfully!";
+}
+
 }
