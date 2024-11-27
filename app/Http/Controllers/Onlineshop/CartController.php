@@ -22,7 +22,7 @@ class CartController extends Controller
         $itemId = $request->item_id;
         $quantity = $request->quantity;
 
-        // dump($userId);
+        dump($userId);
         // dump($itemId);
         // dump($quantity);
 
@@ -34,13 +34,13 @@ class CartController extends Controller
             ], 404);
         }
 
-        
+
         // find or create cart for user
         $cart = Cart::firstOrCreate(
             ['User_user_id' => $userId],
             ['total_price' => 0]
         );
-        
+
         // return request()->all();
 
 
@@ -72,7 +72,6 @@ class CartController extends Controller
         return response()->json([
             'message' => 'Item added to cart'
         ]);
-
     }
 
 
@@ -98,7 +97,7 @@ class CartController extends Controller
             $item = Item::find($cartItem->Item_item_id);
             $variant = Variant::where('Item_item_id', $item->item_id)->get();
             $product[] = [
-                'cart_id' => $cart->cart_id,    
+                'cart_id' => $cart->cart_id,
                 'item_id' => $item->item_id,
                 'name' => $item->name,
                 'price' => $item->price,
@@ -110,7 +109,7 @@ class CartController extends Controller
         }
 
         $cart->product = $product;
-        
+
 
 
         return response()->json($cart);
@@ -124,7 +123,7 @@ class CartController extends Controller
         // request is an array of objects of cart items
         // okay so it appears that request is an array of objects of cart items
         // so we need to loop through each object and update the quantity of each cart item
-        
+
         // find cart for user
         $cart = Cart::where('User_user_id', $userId)->first();
         if (!$cart) {
@@ -132,12 +131,12 @@ class CartController extends Controller
                 'message' => 'Cart not found'
             ], 404);
         }
-        
+
         foreach ($array as $cartItem) {
             // find cart item
             $item = CartItem::where('Cart_cart_id', $cart->cart_id)
-            ->where('Item_item_id', $cartItem['item_id'])
-            ->first();
+                ->where('Item_item_id', $cartItem['item_id'])
+                ->first();
             if (!$item) {
                 return response()->json([
                     'message' => 'Cart item not found'
@@ -155,9 +154,9 @@ class CartController extends Controller
 
         return response()->json([
             'message' => 'Cart updated'
-        ]);        
+        ]);
 
         // return $request;
-        
+
     }
 }
