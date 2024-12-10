@@ -70,7 +70,7 @@ class OnlineShop extends Controller
 
     public $allProduct = [
         [
-            'name' => 'Amul Dark Chocolate',
+            'name' => 'Amul DarkChocolate',
             'price' => 11000,
             'image' => 'resources/images/Onlineshop/Main/amul_darkchocolate_front.png',
         ],
@@ -85,22 +85,22 @@ class OnlineShop extends Controller
             'image' => 'resources/images/Onlineshop/Main/balaji_ratlami_sev_front.png',
         ],
         [
-            'name' => 'Balaji Wafers Chaat Chaska',
+            'name' => 'Balaji Wafers ChaatChaska',
             'price' => 1000,
             'image' => 'resources/images/Onlineshop/Main/balaji_wafers_chaatchaska_front.png',
         ],
         [
-            'name' => 'Balaji Wafers Masala Masti',
+            'name' => 'Balaji Wafers MasalaMasti',
             'price' => 2000,
             'image' => 'resources/images/Onlineshop/Main/balaji_wafers_masalamasti_front.png',
         ],
         [
-            'name' => 'Balaji Wafers Simply Salted',
+            'name' => 'Balaji Wafers SimplySalted',
             'price' => 4000,
             'image' => 'resources/images/Onlineshop/Main/balaji_wafers_simplysalted_front.png',
         ],
         [
-            'name' => 'Balaji Wafers Tomato Twist',
+            'name' => 'Balaji Wafers TomatoTwist',
             'price' => 50000,
             'image' => 'resources/images/Onlineshop/Main/balaji_wafers_tomatotwist_front.png',
         ],
@@ -190,7 +190,7 @@ class OnlineShop extends Controller
             'image' => 'resources/images/Onlineshop/Main/nescafe_coffee_front.png',
         ],
         [
-            'name' => 'Patanjali Aloe Vera Gel',
+            'name' => 'Patanjali AloeVera Gel',
             'price' => 10000,
             'image' => 'resources/images/Onlineshop/Main/patanjali_aloevera_gel_front.png',
         ],
