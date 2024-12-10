@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Onlineshop;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Item;
+use App\Models\Variant;
 
 class OnlineShop extends Controller
 {
@@ -422,6 +425,36 @@ class OnlineShop extends Controller
         ],
     ];
 
+    public function allProducts(Request $request)
+    {
+        // Fetch all products from the database
+        $products = Item::with('variants')->get(); // Eager loading to also fetch variants
+
+        // Get cart data from session
+        $cart = $request->session()->get('cart', []);
+
+        $variants = [];
+        foreach ($products as $product) {
+            $productSlug = strtolower(str_replace(' ', '_', $product->name));
+            $variants[$productSlug] = $product->variants->map(function ($variant) {
+                return [
+                    'variant_name' => $variant->variant_name,
+                    'image_back' => $variant->image_back,
+                    'image_front' => $variant->image_front,
+                    'image_side' => $variant->image_side
+                ];
+            });
+        }
+
+        return view('Pertemuan4.onlineshop', [
+            'products' => $products,
+            'variants' => $variants,
+            'cart' => $cart,
+        ]);
+    }
+
+
+
 
     public function handleShowCart(Request $request)
     {
@@ -456,15 +489,57 @@ class OnlineShop extends Controller
         session()->put('cart', $cart);
     }
 
-    public function allProducts(Request $request)
+    public function addProductsToDatabase()
     {
-        // Ambil cart dari session
-        $cart = $request->session()->get('cart', []);
+        foreach ($this->allProduct as $product) {
+            // Add the product to the database
+            $item = Item::create([
+                'name' => $product['name'],
+                'price' => $product['price'],
+                'image' => $product['image']
+            ]);
 
-        return view('Pertemuan4.onlineshop', [
-            'products' => $this->allProduct,
-            'cart' => $cart,
-            'variants' => $this->productVariantImage,
-        ]);
+            // Add variants if they exist
+            $productSlug = strtolower(str_replace(' ', '_', $product['name']));
+
+            if (array_key_exists($productSlug, $this->productVariantImage)) {
+                $variants = $this->productVariantImage[$productSlug];
+
+                $imageFront = null;
+                $imageBack = null;
+                $imageSide = null;
+
+                // If there are multiple variants, add them
+                foreach ($variants as $variant) {
+                    $variantParts = explode('_', $variant);
+
+                    // Check if variant is for front, back, or side
+                    $lastElement = $variantParts[count($variantParts) - 1];
+                    if ($lastElement === 'front') {
+                        $imageFront = $variant;
+                    } else if ($lastElement === 'back') {
+                        $imageBack = $variant;
+                    } else if ($lastElement === 'side') {
+                        $imageSide = $variant;
+                    }
+
+                    if ($imageFront === null) {
+                        continue;
+                    }
+                }
+
+                // Add the variants to the database
+                // Insert the variant into the database
+                Variant::create([
+                    'Item_item_id' => $item->item_id, // This is the foreign key
+                    'variant_name' => $product['name'] . ' ' . $variantParts[1],
+                    'image_back' => $imageBack,
+                    'image_front' => $imageFront, // Ensure this is always filled
+                    'image_side' => $imageSide,
+                ]);
+            }
+        }
+
+        return "Products and Variants added to the database successfully!";
     }
 }

@@ -17,8 +17,10 @@
 
 <body class="h-full px-24 pt-12 pb-24">
 
-    <nav class="px-24 pt-7 pb-3 w-full flex flex-row justify-between items-center fixed top-0 left-0 right-0 bg-white">
-        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">MARKET APALAHHH</h5>
+    <nav
+        class ="px-24 pt-7 pb-3 w-full flex flex-row justify-between
+    items-center fixed top-0 left-0 right-0 bg-white">
+        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">QIQI RAKHA BG</h5>
         <div class="flex flex-row gap-4 w-[50%]">
             <input type="file" id="imageSearchingInput" class="hidden" />
             <input
@@ -26,8 +28,26 @@
                 id="SearchInput" />
             <button class="flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-7 py-3 hover:bg-[#4e838e]" id="search-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 128 128">
-                    <path
-                        d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z">
+                    <path d=" M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5
+    79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219
+    79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391
+    52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C
+    87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219
+    29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C
+    45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391
+    27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391
+    46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C
+    54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781
+    26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C
+    82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609
+    L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5
+    98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961
+    112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C
+    96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9
+    80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L
+    106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922
+    102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391
+    91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z">
                     </path>
                 </svg>
             </button>
@@ -46,14 +66,28 @@
             <img src={{ Vite::asset('resources/images/ImageProcess/sampleImage.png') }} alt="upload"
                 class="hidden imagepreview" id="imagepreview" />
         </div>
-        <button class="flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]" id="modal-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path
-                    d="M3 3.5H5L5.4 5.5M7 13.5H17L21 5.5H5.4M7 13.5L5.4 5.5M7 13.5L4.70711 15.7929C4.07714 16.4229 4.52331 17.5 5.41421 17.5H17M17 17.5C15.8954 17.5 15 18.3954 15 19.5C15 20.6046 15.8954 21.5 17 21.5C18.1046 21.5 19 20.6046 19 19.5C19 18.3954 18.1046 17.5 17 17.5ZM9 19.5C9 20.6046 8.10457 21.5 7 21.5C5.89543 21.5 5 20.6046 5 19.5C5 18.3954 5.89543 17.5 7 17.5C8.10457 17.5 9 18.3954 9 19.5Z"
-                    stroke="#212122" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <h3 class="font-[LemonMilk] font-bold text-lg ">YOUR CART</h3>
+        <button class="flex flex-row gap-2 rounded-xl bg-[#76E8FF] px-5 py-3 hover:bg-[#4e838e]"
+            @if (Auth::user()->is_admin == 0) id="modal-button" @else id="modal-add-product" @endif>
+            @if (Auth::user()->is_admin == 0)
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                    fill="none">
+                    <path
+                        d="M3 3.5H5L5.4 5.5M7 13.5H17L21 5.5H5.4M7 13.5L5.4 5.5M7 13.5L4.70711 15.7929C4.07714 16.4229 4.52331 17.5 5.41421 17.5H17M17 17.5C15.8954 17.5 15 18.3954 15 19.5C15 20.6046 15.8954 21.5 17 21.5C18.1046 21.5 19 20.6046 19 19.5C19 18.3954 18.1046 17.5 17 17.5ZM9 19.5C9 20.6046 8.10457 21.5 7 21.5C5.89543 21.5 5 20.6046 5 19.5C5 18.3954 5.89543 17.5 7 17.5C8.10457 17.5 9 18.3954 9 19.5Z"
+                        stroke="#212122" stroke-width="2" stroke-linecap="round" stroke-linejoin="roundgi" />
+                </svg>
+                <h3 class="font-[LemonMilk] font-bold text-lg ">YOUR CART</h3>
+            @else
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                    fill="none">
+                    <path
+                        d="M3 3.5H5L5.4 5.5M7 13.5H17L21 5.5H5.4M7 13.5L5.4 5.5M7 13.5L4.70711 15.7929C4.07714 16.4229 4.52331 17.5 5.41421 17.5H17M17 17.5C15.8954 17.5 15 18.3954 15 19.5C15 20.6046 15.8954 21.5 17 21.5C18.1046 21.5 19 20.6046 19 19.5C19 18.3954 18.1046 17.5 17 17.5ZM9 19.5C9 20.6046 8.10457 21.5 7 21.5C5.89543 21.5 5 20.6046 5 19.5C5 18.3954 5.89543 17.5 7 17.5C8.10457 17.5 9 18.3954 9 19.5Z"
+                        stroke="#212122" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h3 class="font-[LemonMilk] font-bold text-md ">ADD PRODUCT</h3>
+            @endif
         </button>
+
+
         <div class="hidden sm:flex sm:items-center sm:ms-6">
             <x-dropdown align="right" width="70">
                 <x-slot name="trigger">
@@ -115,21 +149,21 @@
                 <div class="card flex flex-col gap-4 items-center justify-center shadow-xl p-6 rounded-xl">
                     {{-- Display product image --}}
                     <div class="image w-[200px] h-[200px]">
-                        <img src="{{ Vite::asset($product['image']) }}" alt="{{ $product['name'] }}"
+                        <img src="{{ Vite::asset($product->image) }}" alt="{{ $product->name }}"
                             class="w-full h-full" />
                     </div>
                     {{-- Display product name --}}
-                    <h4 class="font-[Poppins] font-bold text-lg ">{{ $product['name'] }}</h4>
+                    <h4 class="font-[Poppins] font-bold text-lg ">{{ $product->name }}</h4>
                     {{-- Display product price --}}
                     <h5 class="harga font-[Poppins] font-bold text-base text-[#168F64]">Rp
-                        {{ number_format($product['price'], 0, ',', '.') }}/item</h5>
+                        {{ number_format($product->price, 0, ',', '.') }}/item</h5>
 
                     {{-- Quantity buttons --}}
                     <div class="plusminus flex flex-row justify-center items-start h-9">
                         <button id="minus"
                             class="px-4 py-1 flex justify-center items-center border rounded-l-lg h-full hover:bg-black/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13"
-                                fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13"
+                                viewBox="0 0 14 13" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M2.67578 6.79314C2.67578 6.45056 2.95349 6.17285 3.29607 6.17285L10.7395 6.17285C11.0821 6.17285 11.3598 6.45056 11.3598 6.79314C11.3598 7.13572 11.0821 7.41343 10.7395 7.41343L3.29607 7.41343C2.95349 7.41343 2.67578 7.13572 2.67578 6.79314Z"
                                     fill="#212122" />
@@ -150,10 +184,9 @@
                     </div>
 
                     {{-- Add to cart button --}}
-                    {{-- <form action="{{ route('add.to.cart') }}" method="POST" class="w-full"> --}}
-
                     <button
-                        class="addcart flex flex-row gap-1 px-5 py-2 justify-center items-center bg-[#168F64] hover:bg-[#7cc4ab] rounded-lg w-full">
+                        class="addcart flex flex-row gap-1 px-5 py-2 justify-center items-center bg-[#168F64] hover:bg-[#7cc4ab] rounded-lg w-full"
+                        data-item-id="{{ $product->item_id }}">
                         <p class="font-[Poppins] font-semibold text-xs text-white">Add Cart</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 13 13"
                             fill="none">
@@ -166,17 +199,23 @@
 
                 </div>
             @endforeach
-
-
         </div>
+
+
         <section>
             <x-checkoutmodal @keydown.window.escape="open = false" x-show="open" @open-modal.window="open = true"
-                :show="false" :cart=$cart />
+                :show="false" :cart=$cart id="cart-container" />
+
+            <x-modal-add-product @keydown.window.escape="open = false" x-show="open"
+                @open-modal.window="open = true" id="add-product-container" />
+
         </section>
     </main>
 </body>
 
 <script>
+    //console.log("aaa");
+
     const searchButton = document.getElementById('search-button');
     const uploadImage = document.getElementById('upload-image');
     const productContainer = document.getElementById('product-container');
@@ -186,16 +225,53 @@
     let imagePredictions = [];
     const variantsProduct = @json($variants);
     const productarray = @json($products);
+
     const modal = document.getElementById('modal');
+    const modaladdproduct = document.getElementById('modaladdproduct');
     const modalbutton = document.getElementById('modal-button');
+    const modaladdproductbutton = document.getElementById('modal-add-product');
     const closemodal = document.querySelector('.close');
-
     const cart = document.querySelectorAll('.addcart');
-    const cartbutton = document.querySelector('.cart-button');
-    const minus = document.querySelectorAll('#minus');
-    const plus = document.querySelectorAll('#plus');
+    // const cartbutton = document.querySelector('.cart-button');
+    const minusButtons = document.querySelectorAll('#minus');
+    const plusButtons = document.querySelectorAll('#plus');
     const amount = document.querySelectorAll('#amount');
+    const cartButtons = document.querySelectorAll('.addcart');
 
+
+    cartButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+            const itemId = e.currentTarget.getAttribute('data-item-id');
+            const amountElement = e.currentTarget.previousElementSibling.querySelector('#amount');
+            const quantity = parseInt(amountElement.innerText);
+
+            const cartItem = {
+                item_id: itemId,
+                quantity: quantity
+            };
+
+            console.log(JSON.stringify(cartItem));
+
+            try {
+                const response = await fetch('/add-to-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                            .getAttribute('content')
+                    },
+                    body: JSON.stringify(cartItem),
+                });
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log(data); //  Akan mencetak response sebagai teks
+                    updateCartUI();
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
 
     // const inferEngine = new InferenceEngine();
     uploadImage.addEventListener('click', () => {
@@ -270,9 +346,48 @@
         //mengecek dan mengumpulkan semua produk berdasarkan kategori atau variant yang terkandug di dalam imagePredictions
         imagePredictions.forEach((prediction) => {
             const targetPrefix = prediction.class;
-            const matchedVariantName = Object.keys(variantsProduct).find(key =>
-                variantsProduct[key].some(variant => variant.includes(targetPrefix))
-            );
+            console.log(targetPrefix);
+
+            // how to access variantsProduct['balaji_aloo_sev'][0].image_back
+            /*
+            variantProduct = {
+                balaji_aloo_sev: [
+                    {
+                        image_back: 'balaji_aloo_sev_back.jpg',
+                        image_front: 'balaji_aloo_sev_front.jpg',
+                        name: 'balaji_aloo_sev',
+                        price: 10000
+                    },
+                    length: 1
+                ]
+            }
+            */
+
+            var matchedVariantName;
+
+            Object.keys(variantsProduct).forEach(productKey => {
+                console.log(`Checking product: ${productKey}`);
+
+                // Iterate over each variant in the product
+                variantsProduct[productKey].forEach(variant => {
+                    console.log(variant.image_front);
+                    // Compare the target string with image_back, image_front, and image_side if it exists
+                    if (variant.image_back && variant.image_back === targetPrefix) {
+                        console.log(`Match found for image_back in product: ${productKey}`);
+                        matchedVariantName = productKey;
+                    }
+                    if (variant.image_front && variant.image_front === targetPrefix) {
+                        console.log(`Match found for image_front in product: ${productKey}`);
+                        matchedVariantName = productKey;
+
+                    }
+                    if (variant.image_side && variant.image_side === targetPrefix) {
+                        console.log(`Match found for image_side in product: ${productKey}`);
+                        matchedVariantName = productKey;
+
+                    }
+                });
+            });
 
             if (matchedVariantName) {
                 const productToAdd = productarray.find((product) =>
@@ -287,12 +402,15 @@
             }
         });
 
+        productContainer.innerHTML = '';
+        if (productResult.length === 0) {
+            productContainer.innerHTML = '<h1 class="font-[Poppins] font-bold text-4xl">No Product Found</h1>';
+        }
         //console.log("ini adalah result", productResult());
 
         //menampilkan produk yang terkandung di dalam imagePredictions
 
 
-        productContainer.innerHTML = '';
         productResult.forEach((product) => {
             const productImagePath = `{{ Vite::asset('${product.image}') }}`;
 
@@ -349,42 +467,19 @@
         });
     }
 
-
-    // const axios = require("axios");
-    // const fs = require("fs");
-
-    // const image = fs.readFileSync("YOUR_IMAGE.jpg", {
-    //     encoding: "base64"
-    // });
-
-    // axios({
-    //         method: "POST",
-    //         url: "https://detect.roboflow.com/grocery-gf8x4/2",
-    //         params: {
-    //             api_key: "oA3su6iHtN60sgLa37vL"
-    //         },
-    //         data: image,
-    //         headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded"
-    //         }
-    //     })
-    //     .then(function(response) {
-    //         console.log(response.data);
-    //     })
-    //     .catch(function(error) {
-    //         console.log(error.message);
-    //     });
-    // });
-
     searchButton.addEventListener('click', () => {
 
         const searchValue = searchInput.value.toLowerCase();
         const filteredProducts = productarray.filter((product) => product.name.toLowerCase().includes(
             searchValue));
+
+        productContainer.innerHTML = '';
+        if (filteredProducts.length === 0) {
+            productContainer.innerHTML = '<h1 class="font-[Poppins] font-bold text-4xl">No Product Found</h1>';
+        }
         const productImage = productarray.find((product) => product.name.toLowerCase().includes(
             searchValue)).image;
 
-        productContainer.innerHTML = '';
         filteredProducts.forEach((product) => {
             const productImagePath = `{{ Vite::asset('${product.image}') }}`;
 
@@ -444,63 +539,25 @@
 
     });
 
+    let cartArray = [];
 
 
-
-
-
-    //console.log(productarray);
-
-    let cartArray = [
-        //contoh array cart
-        // [
-        //     'name' => 'Kentang GedaGedi',
-        //     'price' => 30000,
-        //     'image' => 'resources/images/Onlineshop/Main/kentang.png',
-        //     'amount' => 1,
-        // ],
-        // [
-        //     'name' => 'Kentang GedaGedi1',
-        //     'price' => 10000,
-        //     'image' => 'resources/images/Onlineshop/Main/kentang.png',
-        //     'amount' => 1,
-        // ],
-        // [
-        //     'name' => 'Kentang GedaGedi2',
-        //     'price' => 20000,
-        //     'image' => 'resources/images/Onlineshop/Main/kentang.png',
-        //     'amount' => 1,
-        // ],
-        // [
-        //     'name' => 'Kentang GedaGedi3',
-        //     'price' => 40000,
-        //     'image' => 'resources/images/Onlineshop/Main/kentang.png',
-        //     'amount' => 1,
-        // ],
-        // [
-        //     'name' => 'Kentang GedaGedi4',
-        //     'price' => 100000,
-        //     'image' => 'resources/images/Onlineshop/Main/kentang.png',
-        //     'amount' => 1,
-        // ],
-    ];
-
-
-    modalbutton.addEventListener('click', async () => {
-        modal.classList.toggle('hidden');
-        modal.classList.toggle('flex');
-        document.querySelector('body').classList.toggle('overflow-y-hidden');
-        await axios.post('/online-shop', {
-            cart: cartArray
-        }).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log(error);
+    if (modalbutton)
+        modalbutton.addEventListener('click', () => {
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+            document.querySelector('body').classList.toggle('overflow-y-hidden');
+            updateCartUI(); // Update the cart when the modal is opened
         });
 
 
-    });
-
+    if (modaladdproductbutton)
+        modaladdproductbutton.addEventListener('click', () => {
+            modaladdproduct.classList.toggle('hidden');
+            modaladdproduct.classList.toggle('flex');
+            document.querySelector('body').classList.toggle('overflow-y-hidden');
+            updateCartUI(); // Update the cart when the modal is opened
+        });
 
 
     closemodal.addEventListener('click', () => {
@@ -509,72 +566,64 @@
         document.querySelector('body').classList.toggle('overflow-y-hidden');
     });
 
-    // fungsikan plus dan minus untuk mengedit isi dari amount
-    minus.forEach((button) => {
-        button.addEventListener('click', () => {
-            let value = parseInt(button.nextElementSibling.innerText);
+    minusButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const amountElement = e.currentTarget.nextElementSibling;
+            let value = parseInt(amountElement.innerText);
             if (value > 1) {
                 value -= 1;
-                button.nextElementSibling.innerText = value;
+                amountElement.innerText = value;
             }
         });
     });
 
-    plus.forEach((button) => {
-        button.addEventListener('click', () => {
-            // console.log(button.previousElementSibling.previousElementSibling.parentElement
-            // .previousElementSibling
-            //   .previousElementSibling);
-            //  console.log(button.previousElementSibling.innerText);
-            let value = parseInt(button.previousElementSibling.innerText);
+    // Handle plus button click to increase quantity
+    plusButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            console.log("AAA");
+            const amountElement = e.currentTarget.previousElementSibling;
+            let value = parseInt(amountElement.innerText);
             value += 1;
-            button
-                .previousElementSibling.innerText = value;
+            amountElement.innerText = value;
         });
     });
 
 
     // fungsikan addcart untuk reset amount
-    cart.forEach(async (button) => {
-        button.addEventListener('click', () => {
-            let name = button.previousElementSibling.previousElementSibling
-                .previousElementSibling
-                .innerText;
-            let price = button.previousElementSibling.previousElementSibling.innerText;
-            let quantity = parseInt(button.previousElementSibling.innerText);
-            let image = productarray.find((product) => product.name === name).image;
-            let cartItem = {
-                'name': name,
-                'price': price,
-                'quantity': quantity,
-                'image': image,
-            };
+    // cart.forEach(async (button) => {
+    //     button.addEventListener('click', async() => {
 
-            if (cartArray.length == 0) {
-                cartArray.push(cartItem);
-            } else {
-                let itemFound = false; // Flag untuk cek apakah item ditemukan
+    //         try {
+    //             let name = button.previousElementSibling.previousElementSibling
+    //                 .previousElementSibling
+    //                 .innerText;
+    //             let price = button.previousElementSibling.previousElementSibling.innerText;
+    //             let quantity = parseInt(button.previousElementSibling.innerText);
+    //             let product = productarray.find((product) => product.name === name);
 
-                cartArray.forEach((item) => {
-                    if (item.name === name) {
-                        if (item.quantity != quantity) {
-                            item.quantity = quantity;
-                        }
-                        itemFound = true; // Item ditemukan
-                        return;
-                    }
-                });
+    //             const cartItem = {
+    //                 item_id: product.id,
+    //                 quantity: quantity
+    //             }
 
-                if (!itemFound) {
-                    cartArray.push(cartItem); // Jika item tidak ditemukan, push ke array
-                }
-            }
+    //             const response = await fetch('/add-to-cart', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    //                 },
+    //                 body: JSON.stringify(cartItem)
+    //             });
+    //             if (response.status === 200) {
+    //                 console.log(response.data);
+    //             }
+    //             UpdateCartUI();
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     });
 
-
-            console.log(cartArray);
-        });
-
-    });
+    // });
 
     // Attach an event listener to the productContainer for any clicks
     productContainer.addEventListener('click', (event) => {
@@ -633,6 +682,97 @@
             console.log(cartArray);
         }
     });
+
+    var cart_items_names = [];
+
+    async function updateCartUI() {
+        try {
+            const response = await fetch('get-cart'); // Mengambil data cart dari server
+            const cart_items = await response.json(); // Mengubah response menjadi JSON
+            cart_items_names = cart_items.product;
+            console.log(cart_items.product[2].image);
+
+            const cartContainer = document.getElementById(
+                'cart-container-items'); // Element container di dalam modal
+            cartContainer.innerHTML = ''; // Bersihkan container sebelum memasukkan item baru
+
+            if (cart_items_names.length > 0) {
+                cart_items_names.forEach((item, index) => {
+                    // Membuat elemen HTML untuk setiap item di cart
+                    const cartItem = `
+                    <div class="card w-full items-center justify-center px-5 py-3 flex flex-row bg-[#EAEAEA] rounded-xl">
+                        <div class="w-[50%] flex flex-row gap-3 items-center">
+                            <div class="image w-[15%]">
+                                <img src="{{ Vite::asset('${item.image}') }}" alt="{{ $product->name }}" class="w-full h-full" />
+                            </div>
+                            <p class="font-[Poppins] font-normals text-2xl ">${item.name}</p>
+                        </div>
+                        <div class="w-[50%] flex flex-row justify-between items-center">
+                            <p class="font-[Poppins] font-normals text-2xl ">${item.price}</p>
+                            <div class="quantity-control flex items-center gap-2">
+                                <button class="decrease-quantity" onclick="updateQuantity(${index}, 'decrease')">−</button>
+                                <p class="font-[Poppins] font-normals text-2xl" id="quantity-${index}">${item.quantity}</p>
+                                <button class="increase-quantity" onclick="updateQuantity(${index}, 'increase')">+</button>
+                            </div>
+                            <p class="font-[Poppins] font-normals text-2xl" id="subtotal-${index}">Rp ${(item.price * item.quantity).toLocaleString()}</p>
+                        </div>
+                    </div>
+                `;
+                    cartContainer.innerHTML += cartItem; // Masukkan item ke dalam container
+                });
+            } else {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+            }
+
+        } catch (error) {
+            console.error('Error fetching cart data:', error);
+        }
+    }
+
+    function updateQuantity(index, action) {
+        const quantityElement = document.getElementById(`quantity-${index}`);
+        let quantity = parseInt(quantityElement.innerText);
+
+        if (action === 'increase') {
+            quantity += 1;
+        } else if (action === 'decrease' && quantity > 0) {
+            quantity -= 1;
+        }
+
+        quantityElement.innerText = quantity;
+
+        // Update subtotal
+        const price = cart_items_names[index].price;
+        const subtotalElement = document.getElementById(`subtotal-${index}`);
+        subtotalElement.innerText = `Rp ${(price * quantity).toLocaleString()}`;
+
+        // Update the cart_items_names with new quantity
+        cart_items_names[index].quantity = quantity;
+    }
+
+    // Function to update the cart (send updated quantities to the server)
+    async function updateCart() {
+        try {
+            console.log(cart_items_names);
+            const response = await fetch('/update-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content')
+                },
+                body: JSON.stringify(cart_items_names)
+            });
+            if (response.status === 200) {
+                const data = await response.json();
+                console.log(data); //  Akan mencetak response sebagai teks
+                updateCartUI();
+            }
+
+        } catch (error) {
+            console.error('Error updating cart:', error);
+        }
+    }
 </script>
 
 </html>
