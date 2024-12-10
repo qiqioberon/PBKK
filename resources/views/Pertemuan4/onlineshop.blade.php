@@ -309,6 +309,33 @@
             .then(function(response) {
                 console.log(response.data.predictions);
                 imagePredictions = response.data.predictions;
+                // addImagePredictionsToProductContainer();
+            })
+            .catch(function(error) {
+                console.log(error.message);
+            });
+
+        axios({
+                method: "POST",
+                url: "https://detect.roboflow.com/ezycart-nbumi/1",
+                params: {
+                    api_key: "oA3su6iHtN60sgLa37vL"
+                },
+                data: image,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(function(response) {
+                console.log(response.data.predictions);
+                // imagePredictions = response.data.predictions;
+                // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
+                response.data.predictions.forEach((prediction) => {
+                    if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
+                            prediction.class)) {
+                        imagePredictions.push(prediction);
+                    }
+                });
                 addImagePredictionsToProductContainer();
             })
             .catch(function(error) {
@@ -347,21 +374,6 @@
         imagePredictions.forEach((prediction) => {
             const targetPrefix = prediction.class;
             console.log(targetPrefix);
-
-            // how to access variantsProduct['balaji_aloo_sev'][0].image_back
-            /*
-            variantProduct = {
-                balaji_aloo_sev: [
-                    {
-                        image_back: 'balaji_aloo_sev_back.jpg',
-                        image_front: 'balaji_aloo_sev_front.jpg',
-                        name: 'balaji_aloo_sev',
-                        price: 10000
-                    },
-                    length: 1
-                ]
-            }
-            */
 
             var matchedVariantName;
 
