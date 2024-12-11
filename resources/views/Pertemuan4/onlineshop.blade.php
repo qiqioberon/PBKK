@@ -482,6 +482,7 @@
 <script>
     //console.log("aaa");
 
+
     const searchButton = document.getElementById('search-button');
     const uploadImage = document.getElementById('upload-image');
     const productContainer = document.getElementById('product-container');
@@ -654,11 +655,40 @@
                         imagePredictions.push(prediction);
                     }
                 });
+                // addImagePredictionsToProductContainer();
+            })
+            .catch(function(error) {
+                console.log(error.message);
+            });
+
+
+        axios({
+                method: "POST",
+                url: "https://detect.roboflow.com/lanjutan-ezy-cart-pbkk/4",
+                params: {
+                    api_key: "oA3su6iHtN60sgLa37vL"
+                },
+                data: image,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(function(response) {
+                console.log(response.data.predictions);
+                imagePredictions = response.data.predictions;
+                // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
+                response.data.predictions.forEach((prediction) => {
+                    if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
+                            prediction.class)) {
+                        imagePredictions.push(prediction);
+                    }
+                });
                 addImagePredictionsToProductContainer();
             })
             .catch(function(error) {
                 console.log(error.message);
             });
+
 
         showModal(imagePredictions);
     });
