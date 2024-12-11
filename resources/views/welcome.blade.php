@@ -94,7 +94,6 @@
                             Mulai Mendaftar di Toko India
                         </button>
                     </a>
-                    </Link>
                 </div>
             </main>
 
