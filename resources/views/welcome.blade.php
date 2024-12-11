@@ -84,15 +84,16 @@
                         sehari-hari.
                     </div>
 
-                    <Link href="{{ route('register') }}">
-                    <button
-                        class="mt-6
+                    <a href="{{ route('register') }}">
+                        <button
+                            class="mt-6
                         inline-block px-4 py-2 text-lg font-bold text-center text-white bg-pink-600 border-2
                         border-pink-800 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:bg-white
                         hover:text-red-500 hover:border-red-500 active:bg-yellow-400 active:shadow-none
                         active:translate-y-4">
-                        Mulai Mendaftar di Toko India
-                    </button>
+                            Mulai Mendaftar di Toko India
+                        </button>
+                    </a>
                     </Link>
                 </div>
             </main>
