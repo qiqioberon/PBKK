@@ -31,8 +31,6 @@ class AuthenticatedSessionController extends Controller
 
         // goto online-shop
         return redirect()->intended(route('onlineshop.allproducts', absolute: false));
-
-        return redirect()->intended(route('dashboard', absolute: false));
     }
 
 
