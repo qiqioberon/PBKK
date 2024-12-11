@@ -203,6 +203,272 @@
 
 
         <section>
+            <style>
+                .modal-loading {
+
+                    /* border: 0;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;*/
+                    --hue: 223;
+                    --bg: hsl(var(--hue), 10%, 90%);
+                    --fg: hsl(var(--hue), 10%, 10%);
+                    --primary: hsl(var(--hue), 90%, 55%);
+                    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+                    --trans-dur: 0.3s;
+                    background-color: var(--bg);
+                    color: var(--fg);
+                    font: 1em/1.5 "DM Sans", sans-serif;
+                    height: 100vh;
+                    display: grid;
+                    place-items: center;
+                    transition:
+                        background-color var(--trans-dur),
+                        color var(--trans-dur);
+                }
+
+                .preloader {
+                    --hue: 223;
+                    --bg: #6cd3e7;
+                    --fg: #6cd3e7;
+                    --primary: #6cd3e7;
+                    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+                    --trans-dur: 0.3s;
+                    text-align: center;
+                    max-width: 20em;
+                    width: 100%;
+                }
+
+                .preloader__text {
+                    position: relative;
+                    height: 1.5em;
+                }
+
+                .preloader__msg {
+                    animation: msg 0.3s 13.7s linear forwards;
+                    position: absolute;
+                    width: 100%;
+                }
+
+                .preloader__msg--last {
+                    animation-direction: reverse;
+                    animation-delay: 14s;
+                    visibility: hidden;
+                }
+
+                .cart {
+                    display: block;
+                    margin: 0 auto 1.5em auto;
+                    width: 8em;
+                    height: 8em;
+                }
+
+                .cart__lines,
+                .cart__top,
+                .cart__wheel1,
+                .cart__wheel2,
+                .cart__wheel-stroke {
+                    animation: cartLines 2s ease-in-out infinite;
+                }
+
+                .cart__lines {
+                    stroke: var(--primary);
+                }
+
+                .cart__top {
+                    animation-name: cartTop;
+                }
+
+                .cart__wheel1 {
+                    animation-name: cartWheel1;
+                    transform: rotate(-0.25turn);
+                    transform-origin: 43px 111px;
+                }
+
+                .cart__wheel2 {
+                    animation-name: cartWheel2;
+                    transform: rotate(0.25turn);
+                    transform-origin: 102px 111px;
+                }
+
+                .cart__wheel-stroke {
+                    animation-name: cartWheelStroke
+                }
+
+                .cart__track {
+                    stroke: hsla(var(--hue), 10%, 10%, 0.1);
+                    transition: stroke var(--trans-dur);
+                }
+
+                /* Dark theme */
+                @media (prefers-color-scheme: dark) {
+                    :root {
+                        --bg: hsl(var(--hue), 10%, 10%);
+                        --fg: hsl(var(--hue), 10%, 90%);
+                    }
+
+                    .cart__track {
+                        stroke: hsla(var(--hue), 10%, 90%, 0.1);
+                    }
+                }
+
+                /* Animations */
+                @keyframes msg {
+                    from {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    99.9% {
+                        opacity: 0;
+                        visibility: visible;
+                    }
+
+                    to {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                @keyframes cartLines {
+
+                    from,
+                    to {
+                        opacity: 0;
+                    }
+
+                    8%,
+                    92% {
+                        opacity: 1;
+                    }
+                }
+
+                @keyframes cartTop {
+                    from {
+                        stroke-dashoffset: -338;
+                    }
+
+                    50% {
+                        stroke-dashoffset: 0;
+                    }
+
+                    to {
+                        stroke-dashoffset: 338;
+                    }
+                }
+
+                @keyframes cartWheel1 {
+                    from {
+                        transform: rotate(-0.25turn);
+                    }
+
+                    to {
+                        transform: rotate(2.75turn);
+                    }
+                }
+
+                @keyframes cartWheel2 {
+                    from {
+                        transform: rotate(0.25turn);
+                    }
+
+                    to {
+                        transform: rotate(3.25turn);
+                    }
+                }
+
+                @keyframes cartWheelStroke {
+
+                    from,
+                    to {
+                        stroke-dashoffset: 81.68;
+                    }
+
+                    50% {
+                        stroke-dashoffset: 40.84;
+                    }
+                }
+
+                /* From Uiverse.io by bociKond */
+                .loader {
+                    /* color of choise */
+                    --clr: #6cd3e7;
+                    /* loading time of choice */
+                    --load-time: 5s;
+                    outline: 5px solid var(--clr);
+                    outline-offset: 5px;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 5rem;
+                    /* width: 10rem; */
+                    /* height: 2rem; */
+                    padding: 1rem 8rem;
+                    /* use either padding or width + height*/
+                    /* I prefer the padding one */
+                    /* rotate: -90deg; */
+                    /* rotate if you want/need vertical loader */
+                }
+
+                .loader::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--clr);
+                    z-index: 2;
+                    animation: loading var(--load-time) ease-in-out infinite;
+                }
+
+                @keyframes loading {
+                    0% {
+                        width: 0%;
+                    }
+
+                    100% {
+                        width: 100%;
+                    }
+                }
+            </style>
+            <div id="modal-loading"
+                class="fixed top-0 z-40 h-screen inset-0 bg-black bg-opacity-80 hidden justify-center items-center">
+                <div
+                    class="w-fit px-20 py-20 h-fit p-8 bg-white rounded-2xl flex flex-col gap-8 justify-center items-center">
+                    <div class="preloader">
+                        <svg class="cart" role="img" aria-label="Shopping cart line animation"
+                            viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                                <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+                                    <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+                                    <circle cx="43" cy="111" r="13" />
+                                    <circle cx="102" cy="111" r="13" />
+                                </g>
+                                <g class="cart__lines" stroke="currentColor">
+                                    <polyline class="cart__top"
+                                        points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
+                                        stroke-dasharray="338 338" stroke-dashoffset="-338" />
+                                    <g class="cart__wheel1" transform="rotate(-90,43,111)">
+                                        <circle class="cart__wheel-stroke" cx="43" cy="111" r="13"
+                                            stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                                    </g>
+                                    <g class="cart__wheel2" transform="rotate(90,102,111)">
+                                        <circle class="cart__wheel-stroke" cx="102" cy="111" r="13"
+                                            stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="preloader__text">
+                            <p class="preloader__msg">Bringing you the goods…</p>
+                            <p class="preloader__msg preloader__msg--last">Please wait a second</p>
+                        </div>
+                    </div>
+                    <div class="loader"></div>
+                </div>
+            </div>
+
+            </div>
             <x-checkoutmodal @keydown.window.escape="open = false" x-show="open" @open-modal.window="open = true"
                 :show="false" :cart=$cart id="cart-container" />
 
@@ -238,6 +504,30 @@
     const amount = document.querySelectorAll('#amount');
     const cartButtons = document.querySelectorAll('.addcart');
 
+
+
+    function showModal(imagePredictions) {
+        const modalLoading = document.getElementById('modal-loading');
+        modalLoading.classList.remove('hidden'); // Tampilkan modalLoading
+        modalLoading.classList.add('flex'); // Pastikan flex layout aktif
+
+        // Setelah 10 detik atau jika imagePrediction ada, sembunyikan modalLoading
+        if (imagePredictions.length > 0) {
+            modalLoading.classList.remove('flex');
+            modalLoading.classList.add('hidden');
+        } else {
+            setTimeout(() => {
+                modalLoading.classList.remove('flex');
+                modalLoading.classList.add('hidden');
+            }, 5000); // 10 detik dalam milidetik
+        }
+
+        // setTimeout(() => {
+        //     modalLoading.classList.remove('flex');
+        //     modalLoading.classList.add('hidden');
+        // }, 10000); // 10 detik dalam milidetik
+
+    }
 
     cartButtons.forEach(button => {
         button.addEventListener('click', async (e) => {
@@ -369,6 +659,8 @@
             .catch(function(error) {
                 console.log(error.message);
             });
+
+        showModal(imagePredictions);
     });
 
 
