@@ -600,6 +600,7 @@
             .then(function(response) {
                 console.log(response.data.predictions);
                 imagePredictions = response.data.predictions;
+                // console.log(`Image predictions 1: ${imagePredictions}`);
                 // addImagePredictionsToProductContainer();
             })
             .catch(function(error) {
@@ -619,7 +620,8 @@
             })
             .then(function(response) {
                 console.log(response.data.predictions);
-                imagePredictions = response.data.predictions;
+                // imagePredictions = response.data.predictions;
+                console.log(`Image predictions 2: ${imagePredictions}`);
                 // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
                 response.data.predictions.forEach((prediction) => {
                     if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
@@ -647,7 +649,7 @@
             })
             .then(function(response) {
                 console.log(response.data.predictions);
-                imagePredictions = response.data.predictions;
+                // imagePredictions = response.data.predictions;
                 // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
                 response.data.predictions.forEach((prediction) => {
                     if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
@@ -675,7 +677,7 @@
             })
             .then(function(response) {
                 console.log(response.data.predictions);
-                imagePredictions = response.data.predictions;
+                // imagePredictions = response.data.predictions;
                 // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
                 response.data.predictions.forEach((prediction) => {
                     if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
