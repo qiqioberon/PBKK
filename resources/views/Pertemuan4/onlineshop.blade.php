@@ -12,7 +12,7 @@
     @vite('resources/js/app.js')
     @vite('resources/css/fonts.css')
 
-    <title>MEME SHOP</title>
+    <title>TOKO INDIA PBKK</title>
 </head>
 
 <body class="h-full px-24 pt-12 pb-24">
@@ -20,7 +20,7 @@
     <nav
         class ="px-24 pt-7 pb-3 w-full flex flex-row justify-between
     items-center fixed top-0 left-0 right-0 bg-white">
-        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">QIQI RAKHA BG</h5>
+        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">TOKO INDIA</h5>
         <div class="flex flex-row gap-4 w-[50%]">
             <input type="file" id="imageSearchingInput" class="hidden" />
             <input
@@ -328,7 +328,35 @@
             })
             .then(function(response) {
                 console.log(response.data.predictions);
-                // imagePredictions = response.data.predictions;
+                imagePredictions = response.data.predictions;
+                // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
+                response.data.predictions.forEach((prediction) => {
+                    if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
+                            prediction.class)) {
+                        imagePredictions.push(prediction);
+                    }
+                });
+                // addImagePredictionsToProductContainer();
+            })
+            .catch(function(error) {
+                console.log(error.message);
+            });
+
+
+        axios({
+                method: "POST",
+                url: "https://detect.roboflow.com/lanjutan-ezy-cart-pbkk/2",
+                params: {
+                    api_key: "oA3su6iHtN60sgLa37vL"
+                },
+                data: image,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(function(response) {
+                console.log(response.data.predictions);
+                imagePredictions = response.data.predictions;
                 // cek jika imagePredictions sama maka tidak ditambahkan, jika beda maka tambahkan hasil prediksi ke dalam imagePredictions
                 response.data.predictions.forEach((prediction) => {
                     if (!imagePredictions.some((imagePrediction) => imagePrediction.class ===
@@ -370,6 +398,7 @@
         event.preventDefault();
         const productResult = [];
 
+
         //mengecek dan mengumpulkan semua produk berdasarkan kategori atau variant yang terkandug di dalam imagePredictions
         imagePredictions.forEach((prediction) => {
             const targetPrefix = prediction.class;
@@ -377,28 +406,33 @@
 
             var matchedVariantName;
 
+            // Iterate over each product variant
             Object.keys(variantsProduct).forEach(productKey => {
                 console.log(`Checking product: ${productKey}`);
 
-                // Iterate over each variant in the product
-                variantsProduct[productKey].forEach(variant => {
-                    console.log(variant.image_front);
-                    // Compare the target string with image_back, image_front, and image_side if it exists
-                    if (variant.image_back && variant.image_back === targetPrefix) {
-                        console.log(`Match found for image_back in product: ${productKey}`);
-                        matchedVariantName = productKey;
-                    }
-                    if (variant.image_front && variant.image_front === targetPrefix) {
-                        console.log(`Match found for image_front in product: ${productKey}`);
-                        matchedVariantName = productKey;
+                if (targetPrefix === productKey) {
+                    console.log(`Match found for product: ${productKey}`);
+                    matchedVariantName = productKey;
+                } else
+                    // Iterate over each variant in the product
+                    variantsProduct[productKey].forEach(variant => {
+                        console.log(variant.image_front);
+                        // Compare the target string with image_back, image_front, and image_side if it exists
+                        if (variant.image_back && variant.image_back === targetPrefix) {
+                            console.log(`Match found for image_back in product: ${productKey}`);
+                            matchedVariantName = productKey;
+                        }
+                        if (variant.image_front && variant.image_front === targetPrefix) {
+                            console.log(`Match found for image_front in product: ${productKey}`);
+                            matchedVariantName = productKey;
 
-                    }
-                    if (variant.image_side && variant.image_side === targetPrefix) {
-                        console.log(`Match found for image_side in product: ${productKey}`);
-                        matchedVariantName = productKey;
+                        }
+                        if (variant.image_side && variant.image_side === targetPrefix) {
+                            console.log(`Match found for image_side in product: ${productKey}`);
+                            matchedVariantName = productKey;
 
-                    }
-                });
+                        }
+                    });
             });
 
             if (matchedVariantName) {
