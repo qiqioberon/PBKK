@@ -23,7 +23,7 @@
         <div class="relative min-h-screen">
 
             <header class="fixed top-0 w-full h-20 px-8 border-b shadow-sm bg-white flex items-center justify-between">
-                <h5 class="font-[LemonMilk] font-bold text-3xl text-[#54C4DB]">TOKO INDIA</h5>
+                <h5 class="font-[LemonMilk] font-bold text-3xl text-[#54C4DB]">APOORVSHOP</h5>
                 @if (Route::has('login'))
                     <nav class="flex gap-5 items-center w-1/8">
                         @auth
@@ -64,7 +64,7 @@
                             class="mb-4 flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
                             <img width="50" height="50" class="h-6 w-6 mr-2"
                                 src="https://img.icons8.com/ios/50/medal.png" alt="medal" />
-                            No 1 India Shop On PBKK
+                            No 1 Shop On PBKK
                         </div>
                         <h1 class="text-3xl md:text-5xl text-center text-neutral-800 mb-6">
                             Toko India membantu Anda

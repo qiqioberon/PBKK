@@ -20,7 +20,7 @@
     <nav
         class ="px-24 pt-7 pb-3 w-full flex flex-row justify-between
     items-center fixed top-0 left-0 right-0 bg-white">
-        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">TOKO INDIA</h5>
+        <h5 class="font-[LemonMilk] font-bold text-2xl text-[#54C4DB]">ApoorvShop</h5>
         <div class="flex flex-row gap-4 w-[50%]">
             <input type="file" id="imageSearchingInput" class="hidden" />
             <input
