@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Toko India QQ</title>
+    <title>APOORVSHOP
+
+    </title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -67,10 +69,10 @@
                             No 1 Shop On PBKK
                         </div>
                         <h1 class="text-3xl md:text-5xl text-center text-neutral-800 mb-6">
-                            Toko India membantu Anda
+                            ApoorvShop membantu dalam
                         </h1>
                         <h1 class="text-3xl md:text-5xl text-center text-neutral-800 mb-6">
-                            belanja kebutuhan India
+                            belanja kebutuhan Anda
                         </h1>
                         <div
                             class="text-3xl md:text-5xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
@@ -79,7 +81,7 @@
                     </div>
                     <div class="text-sm md:text-lg text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto">
                         Belanja kebutuhan harian seperti makanan, sembako, sabun, sampo, dan jajanan ringan dengan mudah
-                        di Toko India.
+                        di ApoorvShop.
                         Temukan berbagai produk berkualitas dengan harga terjangkau untuk memenuhi kebutuhan Anda
                         sehari-hari.
                     </div>
@@ -91,7 +93,7 @@
                         border-pink-800 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:bg-white
                         hover:text-red-500 hover:border-red-500 active:bg-yellow-400 active:shadow-none
                         active:translate-y-4">
-                            Mulai Mendaftar di Toko India
+                            Mulai Mendaftar di ApoorvShop
                         </button>
                     </a>
                 </div>
